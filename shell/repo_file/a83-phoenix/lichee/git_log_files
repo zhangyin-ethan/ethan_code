@@ -1,0 +1,7 @@
+lichee/linux-3.4/arch/arm/mach-sunxi/Makefile
+lichee/linux-3.4/drivers/media/video/sunxi-vfe/device/gc2355_mipi.c
+lichee/linux-3.4/drivers/media/cedar-ve/cedar_ve.c
+lichee/tools/pack/chips/sun8iw6p1/configs/f1/sys_config.fex
+lichee/tools/pack/chips/sun8iw6p1/configs/default/env.cfg
+lichee/tools/pack/chips/sun8iw6p1/configs/f1/sys_config.fex
+lichee/tools/pack/chips/sun8iw6p1/configs/f1/sys_config.fex

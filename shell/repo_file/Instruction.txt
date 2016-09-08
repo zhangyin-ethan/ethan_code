@@ -1,0 +1,36 @@
+git_file_manager/
+├── a83-phoenix
+│   ├── android
+│   │   ├── generated_files
+│   │   ├── file.ignore
+│   │   ├── git_log_files
+│   │   └── repo_list
+│   └── lichee
+│       ├── generated_files
+│       ├── file.ignore
+│       ├── git_log_files
+│       └── repo_list
+├── git_file_generate.sh
+└── Instroduction.txt
+
+a83-phoenix: the platform directory
+android & lichee: the directory to get repo list
+file.ignore: the note for ignore
+repo_list: the repo_list in android & lichee
+git_log_file: the the git log collect result
+generated_file: the final result
+
+
+
+usage:
+1. modify the git log date in "git_file_generate"
+START_DATE="2016-7-9"
+END_DATE="2016-7-20"
+2. add the a new platform dir like "a83-phoenix", if you need
+3. execute the .sh
+./git_file_generate.sh  -c ~/project/a64/phonix_sdk/code_check  -p a83-phoenix
+-c xxxx: the code dirctory
+-p yyyy: the platform dirctory
+
+
+
