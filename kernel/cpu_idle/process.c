@@ -256,6 +256,7 @@ void cpu_idle(void)
 
 
 	/* endless idle loop with no priority at all */
+	//for cpu idle percentage test ethan 2016-07-29
 	while (1) {
 
 		do_gettimeofday(&before_idle_time);
