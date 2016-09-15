@@ -1,4 +1,4 @@
-function ethan_sync_push(){
+function push_sync_ethan(){
 	branch="origin"
 	if [ "$1" ] ; then
 		branch="$1"
@@ -7,7 +7,7 @@ function ethan_sync_push(){
 	git push $branch master
 }
 
-function ethan_sync_pull(){
+function pull_sync_ethan(){
 	branch="origin"
 	if [ "$1" ] ; then
 		branch="$1"
@@ -17,7 +17,7 @@ function ethan_sync_pull(){
 }
 
 
-function ethan_gitginore_rename(){
+function gitginore_rename_ethan(){
 	echo "find ./ -name .gitignore"
 	find ./ -name ".gitignore"
 	num_git=`find ./ -name ".gitignore" | wc -l`
@@ -34,7 +34,7 @@ function ethan_gitginore_rename(){
 	echo ".gitignore:$num_git .gitignore.bak:$num_gitbak"	
 }
 
-function ethan_gitginore_restore(){
+function gitginore_restore_ethan(){
 	echo "find ./ -name .gitignore.bak"
 	find ./ -name ".gitignore.bak"
 	num_gitbak=`find ./ -name ".gitignore.bak" | wc -l`
