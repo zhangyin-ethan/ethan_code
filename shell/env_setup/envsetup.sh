@@ -1,3 +1,9 @@
+function env_version(){
+	echo "yes, env_xxx_ethan has been set"
+	echo "V01--20160915 by zhangyin_ethan@126.com"
+}
+VERSION="V02--2016/09/05 by zhangyin_ethan@126.com"
+
 function push_sync_ethan(){
 	branch="origin"
 	if [ "$1" ] ; then
