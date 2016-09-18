@@ -1,6 +1,6 @@
 #!/bin/bash
 ##  global variable ##
-VERSION="V02--2016/09/05 by zhangyin_ethan@126.com"
+VERSION="V03--2016/09/18 by zhangyin_ethan@126.com"
 set -e
 
 CUR=`pwd`
@@ -86,20 +86,20 @@ git init --bare  ${dir_src}.git
 
 ## get the code repo_list ##
 cd ${SRC}
-repo list > $CUR/${dir_src}_repo_list
-sed -i 's/\(.*\) :\(.*\)/\1/'  $CUR/${dir_src}_repo_list
-echo "generated->$CUR/${dir_src}_repo_list"
+repo list > $DST/${dir_src}_repo_list
+sed -i 's/\(.*\) :\(.*\)/\1/'  $DST/${dir_src}_repo_list
+echo "generated->$DST/${dir_src}_repo_list"
 
-name=`cat $CUR/${dir_src}_repo_list | head -1`
+name=`cat $DST/${dir_src}_repo_list | head -1`
 
 #echo "name:$name"
 cd  ${SRC}/${name}
-echo "${SRC}/${name}"  >>  "$CUR/${dir_src}_git_log"
-git  log >>  "$CUR/${dir_src}_git_log"
+echo "${SRC}/${name}"  >>  "$DST/${dir_src}_git_log"
+git  log >>  "$DST/${dir_src}_git_log"
 
 
 ## clear all the sub projects git  ##
-for name in $(cat "$CUR/${dir_src}_repo_list")
+for name in $(cat "$DST/${dir_src}_repo_list")
 do
 	cd  ${SRC}/${name}
 	rm -rf .git
