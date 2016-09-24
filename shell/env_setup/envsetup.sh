@@ -23,34 +23,39 @@ function pull_sync_ethan(){
 }
 
 
-function gitginore_rename_ethan(){
-	echo "find ./ -name .gitignore"
-	find ./ -name ".gitignore"
+function gitignore_rename_ethan(){
+	#echo "find ./ -name .gitignore"
+	#find ./ -name ".gitignore"
 	num_git=`find ./ -name ".gitignore" | wc -l`
-
+	IFS_BAK=$IFS
+	IFS=$'\n'
 	for name in `find ./ -name ".gitignore"`; do
-		mv $name  ${name}.bak
+		mv "$name"  "${name}.bak" #" " yekeyibuyao 
 	done
 
-	echo "find ./ -name .gitignore.bak"
+	IFS=$IFS_BAK
+	#echo "find ./ -name .gitignore.bak"
 
-	find ./ -name ".gitignore.bak"
+	#find ./ -name ".gitignore.bak"
 	num_gitbak=`find ./ -name ".gitignore.bak" | wc -l`
 
 	echo ".gitignore:$num_git .gitignore.bak:$num_gitbak"	
 }
 
-function gitginore_restore_ethan(){
-	echo "find ./ -name .gitignore.bak"
-	find ./ -name ".gitignore.bak"
+function gitignore_restore_ethan(){
+	#echo "find ./ -name .gitignore.bak"
+	#find ./ -name ".gitignore.bak"
 	num_gitbak=`find ./ -name ".gitignore.bak" | wc -l`
+	IFS_BAK=$IFS
+	IFS=$'\n'
 	for name in `find ./ -name ".gitignore.bak"`; do
 		dir=`dirname  $name`
-		mv $name  $dir/.gitignore
+		git mv -f "$name"  "$dir/.gitignore"
 	done
-
-	echo "find ./ -name .gitignore\n"
-	find ./ -name ".gitignore"
+	IFS=$IFS_BAK
+	#echo "find ./ -name .gitignore\n"
+	#find ./ -name ".gitignore"
 	num_git=`find ./ -name ".gitignore" | wc -l`
 	echo ".gitignore.bak:$num_gitbak .gitignore:$num_git"	
 }
+

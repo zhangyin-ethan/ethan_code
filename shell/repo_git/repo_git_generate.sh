@@ -1,6 +1,6 @@
 #!/bin/bash
 ##  global variable ##
-VERSION="V03--2016/09/18 by zhangyin_ethan@126.com"
+VERSION="V02--2016/09/05 by zhangyin_ethan@126.com"
 set -e
 
 CUR=`pwd`
