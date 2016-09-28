@@ -59,3 +59,25 @@ function gitignore_restore_ethan(){
 	echo ".gitignore.bak:$num_gitbak .gitignore:$num_git"	
 }
 
+function patch_creat_ethan(){
+	dir_name=`basename $PWD`
+	dir_old=${dir_name}_old
+	dir_new=${dir_name}_new
+	mkdir $dir_old $dir_new
+	for name in $@	
+	do
+		if [ -f $name ]; then
+			cp --parents $name  $dir_new
+			git checkout $name > /dev/null  2>&1
+			if [ $? -eq 0 ]; then
+				cp --parents $name  $dir_old
+				cp  $dir_new/$name  $name
+			fi	
+			echo "$name --is handled"
+		else
+			echo "$name is not a file, please manual handle!!"
+		fi
+	done
+	
+	unset dir_name dir_old dir_new
+}
