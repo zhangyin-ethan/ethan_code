@@ -49,14 +49,29 @@ int main(int argc, char* argv[], char* envp[])
 
 	//creat the encrypt file
 	
+
+
+
 	char name_encrypt[256];
-	char name_buf[256];
-	char *str;
+	char name_dir[256];
+	char name_base[256];
+	char *strdir, *strname;
 	char *tmp;
-	strcpy((char *)name_buf, argv[1]);
-	str = dirname(name_buf);
-	strcpy(name_encrypt, str);
-	strcat(name_encrypt, "/encrypted_file");
+	int len;
+	strcpy((char *)name_dir, argv[1]);
+	strcpy((char *)name_base, argv[1]);
+
+	strdir = dirname(name_dir);
+	strname = basename(name_base);
+
+	strcpy(name_encrypt, strdir);
+	strcat(name_encrypt, "/");
+	strcat(name_encrypt, strname);
+	strcat(name_encrypt, ".encode");
+
+
+
+
 	printf("encrypt file is: %s\n", name_encrypt);
 	if (!access(name_encrypt, R_OK)){
 		//printf("file:%s exit, delete first!!\n", name_encrypt);
